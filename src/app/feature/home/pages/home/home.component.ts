@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {TopbarComponent} from '../../components/topbar/topbar.component';
 
 @Component({
   selector: 'app-home',
   imports: [
-    RouterLink
+    RouterLink,
+    TopbarComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

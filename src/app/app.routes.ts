@@ -5,6 +5,9 @@ import {LoginComponent} from './feature/home/pages/login/login.component';
 import {RegisterComponent} from './feature/home/pages/register/register.component';
 import {CrmComponent} from './feature/crm/pages/crm/crm.component';
 import {ProductsComponent} from './feature/crm/pages/products/products.component';
+import {BrandsComponent} from './feature/crm/pages/brands/brands.component';
+import {CategoryComponent} from './feature/crm/pages/category/category.component';
+import {UsersComponent} from './feature/crm/pages/users/users.component';
 
 export const routes: Routes = [{
   path: '',
@@ -21,8 +24,21 @@ export const routes: Routes = [{
 }, {
   path: 'crm',
   component: CrmComponent,
-  children: [{
-    path: 'products',
-    component: ProductsComponent
-  }]
+  children: [
+    {
+      path: 'brands',
+      component: BrandsComponent
+    },
+    {
+      path: 'category',
+      component: CategoryComponent
+    },
+    {
+      path: 'products',
+      component: ProductsComponent
+    }, {
+      path: 'users',
+      component: UsersComponent
+    }
+  ]
 }];
