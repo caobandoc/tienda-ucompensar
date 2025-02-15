@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Brand } from '../../../../core/models/Brand';
 
 @Component({
   selector: 'app-tablebrand',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './tablebrand.component.scss'
 })
 export class TablebrandComponent {
-
+  @Input() displayedColumns: string[] = [];
+  @Input() dataSource: Brand[] = [];
 }
