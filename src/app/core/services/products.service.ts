@@ -52,7 +52,8 @@ const ELEMENT_DATA: Product[] = [
     name: 'Xiaomi 14T Pro 12+512GB',
     price: 2699900,
     description: 'Xiaomi 14T Pro 12+512GB',
-    imageUrl: 'https://placehold.co/50x50',
+    imageUrl: 
+    'https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-s928-sm-s928bztultc-539325480?$684_547_PNG$',
     quantity: 1,
     category: 'smartphone',
     brand: 'xiaomi',
@@ -62,7 +63,8 @@ const ELEMENT_DATA: Product[] = [
     name: 'Xiaomi 14T 12+512GB',
     price: 2099900,
     description: 'Xiaomi 14T 12+512GB',
-    imageUrl: 'https://placehold.co/50x50',
+    imageUrl:
+    'https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-s928-sm-s928bztultc-539325480?$684_547_PNG$',
     quantity: 1,
     category: 'smartphone',
     brand: 'xiaomi',

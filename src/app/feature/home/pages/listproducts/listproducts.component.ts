@@ -3,12 +3,14 @@ import {Product} from '../../../../core/models/Product';
 import {ProductsService} from '../../../../core/services/products.service';
 import {TopbarComponent} from '../../components/topbar/topbar.component';
 import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-listproducts',
   imports: [
     TopbarComponent,
-    RouterLink
+    RouterLink,
+    NgOptimizedImage
   ],
   templateUrl: './listproducts.component.html',
   styleUrl: './listproducts.component.scss'

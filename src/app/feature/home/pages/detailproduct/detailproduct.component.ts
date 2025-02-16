@@ -3,10 +3,11 @@ import {Product} from '../../../../core/models/Product';
 import {ProductsService} from '../../../../core/services/products.service';
 import {TopbarComponent} from '../../components/topbar/topbar.component';
 import { ActivatedRoute } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-detailproduct',
-  imports: [TopbarComponent],
+  imports: [TopbarComponent, NgOptimizedImage],
   templateUrl: './detailproduct.component.html',
   styleUrl: './detailproduct.component.scss'
 })
