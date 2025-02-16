@@ -1,20 +1,20 @@
 <header data-bs-theme="dark">
     <nav class="navbar navbar-expand-md navbar-dark" style="background: orange">
-        <button class="btn btn-primary me-5" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-           aria-controls="offcanvasExample">
-            Menu
-        </button>
-        <a class="navbar-brand mb-2" routerLink="/">Electro</a>
+
+        <a class="navbar-brand mb-2">Electro</a>
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
             <li class="nav-items"><a href="#" class="link nav-link">Cerrar Sesión</a></li>
         </ul>
     </nav>
 </header>
-
+<a class="btn btn-warning mt-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+    aria-controls="offcanvasExample">Menu
+</a>
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Electro</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas-header" style="background:orange ;color:white ;">
+        <img src="images/icon.PNG" class="icono rounded-circle" alt="">
+        <h1 class="offcanvas-title">Electro</h1>
+        <button type="button" class="btn-close text-reset btn-warning" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
         <ul>
@@ -46,4 +46,4 @@
     </div>
 </div>
 
-<router-outlet/>
+<router-outlet />
