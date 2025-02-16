@@ -29,4 +29,12 @@ export class ProductsService {
       observer.complete();
     });
   }
+
+  public getProduct(id: string): Observable<Product> {
+    return new Observable((observer) => {
+      const product = ELEMENT_DATA.find((product) => product.id === Number(id));
+      observer.next(product);
+      observer.complete();
+    });
+  }
 }

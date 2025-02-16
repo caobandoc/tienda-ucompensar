@@ -5,7 +5,6 @@ import {TopbarComponent} from '../../components/topbar/topbar.component';
 @Component({
   selector: 'app-home',
   imports: [
-    RouterLink,
     TopbarComponent
   ],
   templateUrl: './home.component.html',

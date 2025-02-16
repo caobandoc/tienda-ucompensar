@@ -8,6 +8,7 @@ import {ProductsComponent} from './feature/crm/pages/products/products.component
 import {BrandsComponent} from './feature/crm/pages/brands/brands.component';
 import {CategoryComponent} from './feature/crm/pages/category/category.component';
 import {UsersComponent} from './feature/crm/pages/users/users.component';
+import {ProductComponent} from './feature/home/pages/product/product.component';
 
 export const routes: Routes = [{
   path: '',
@@ -18,6 +19,9 @@ export const routes: Routes = [{
 }, {
   path: 'login',
   component: LoginComponent
+}, {
+  path: 'product/:id',
+  component: ProductComponent
 }, {
   path: 'register',
   component: RegisterComponent
