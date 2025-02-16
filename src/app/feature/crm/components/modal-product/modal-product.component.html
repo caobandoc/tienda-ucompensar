@@ -1,0 +1,61 @@
+<div class="container p-3">
+  <h1>Producto</h1>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label >Nombre</mat-label>
+      <input type="text" matInput placeholder="Ejemplo" formControlName="name">
+      @if (productForm.get('name')?.touched && productForm.get('name')?.hasError('required')) {
+        <mat-error>Nombre es <strong>requerido</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="full-width" floatLabel="always">
+      <mat-label>Precio</mat-label>
+      <input type="number" matInput placeholder="0" id="price" formControlName="price">
+      <span matTextPrefix>$&nbsp;</span>
+      @if (productForm.get('price')?.touched) {
+        @if (productForm.get('price')?.hasError('required')) {
+          <mat-error>El precio es <strong>requerido</strong></mat-error>
+        } @else if (productForm.get('price')?.hasError('min')) {
+          <mat-error>El precio debe ser mayor o igual a <strong>1.000</strong></mat-error>
+        }
+      }
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Descripcion</mat-label>
+      <textarea  type="text" matInput placeholder="Descripcion" id="description" formControlName="description"></textarea>
+      @if (productForm.get('description')?.touched && productForm.get('description')?.hasError('required')) {
+        <mat-error>La descripcion es <strong>requerida</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Url de la imagen</mat-label>
+      <input type="text" matInput placeholder="Url de la imagen" id="imageUrl" formControlName="imageUrl">
+      @if (productForm.get('imageUrl')?.touched && productForm.get('imageUrl')?.hasError('required')) {
+        <mat-error>La url de la imagen es <strong>requerida</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="full-width" floatLabel="always">
+      <mat-label>Cantidad</mat-label>
+      <input type="number" matInput placeholder="0" id="quantity" formControlName="quantity">
+      @if (productForm.get('quantity')?.touched) {
+        @if (productForm.get('quantity')?.hasError('required')) {
+          <mat-error>Cantidad es <strong>requerida</strong></mat-error>
+        } @else if (productForm.get('quantity')?.hasError('min')) {
+          <mat-error>La cantidad debe ser mayor o igual a 0</mat-error>
+        }
+      }
+    </mat-form-field>
+
+    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+      @if(product?.id){
+        Actualizar
+      } @else {
+        Crear
+      }
+    </button>
+  </form>
+</div>
