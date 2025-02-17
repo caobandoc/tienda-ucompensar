@@ -20,7 +20,7 @@ export class ModalProductComponent {
   public productForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private readonly fb: FormBuilder
   ) {
     this.productForm = this.fb.group({
       id: [this.product?.id],
