@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/Product';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
+import {Product} from '../models/Product';
+
 
 const ELEMENT_DATA: Product[] = [
   {
@@ -52,7 +53,7 @@ const ELEMENT_DATA: Product[] = [
     name: 'Xiaomi 14T Pro 12+512GB',
     price: 2699900,
     description: 'Xiaomi 14T Pro 12+512GB',
-    imageUrl: 
+    imageUrl:
     'https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-s928-sm-s928bztultc-539325480?$684_547_PNG$',
     quantity: 1,
     category: 'smartphone',
