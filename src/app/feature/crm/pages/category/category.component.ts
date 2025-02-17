@@ -1,21 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../../../core/services/category.service';
-import { Category } from '../../../../core/models/Category';
+import {Component} from '@angular/core';
+import {CategoryService} from '../../../../core/services/category.service';
+import {Category} from '../../../../core/models/Category';
+import {TableCategoryComponent} from '../../components/tablecategory/table-category.component';
 
 @Component({
-  selector: 'app-category-list',
-  templateUrl: './category-list.component.html',
-  styleUrls: ['./category-list.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  imports: [
+    TableCategoryComponent
+  ],
+  styleUrls: ['./category.component.css']
 })
-export class CategoryListComponent {
+export class CategoryComponent {
   categories: Category[] = [];
-  newCategory: Category = { id: 0, name:  '' };
+  displayedColumns: string[] = ['id', 'nombre', 'acciones'];
 
-  constructor(private categoryService: CategoryService) { }
-
-  
+  constructor(private readonly categoryService: CategoryService) {
+    this.categoryService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+    });
   }
 
-     
+}
 
-  
+
+

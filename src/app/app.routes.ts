@@ -3,11 +3,11 @@ import {HomeComponent} from './feature/home/pages/home/home.component';
 import {ListproductsComponent} from './feature/home/pages/listproducts/listproducts.component';
 import {LoginComponent} from './feature/home/pages/login/login.component';
 import {RegisterComponent} from './feature/home/pages/register/register.component';
-import {CrmComponent} from './feature/crm/pages/crm/crm.component';
 import {ProductsComponent} from './feature/crm/pages/products/products.component';
 import {BrandsComponent} from './feature/crm/pages/brands/brands.component';
-import {CategoryComponent} from './feature/crm/pages/category/category.component';
 import {UsersComponent} from './feature/crm/pages/users/users.component';
+import {CategoryComponent} from './feature/crm/pages/category/category.component';
+import {CrmComponent} from './feature/crm/pages/crm/crm.component';
 
 export const routes: Routes = [{
   path: '',

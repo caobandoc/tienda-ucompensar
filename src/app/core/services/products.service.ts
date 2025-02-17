@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Product} from '../models/Product';
 import {Observable} from 'rxjs';
+import {Product} from '../models/Product';
+
 
 const ELEMENT_DATA: Product[] = [
   {id: 1, name: 'S25 Ultra 12+512GB', price: 5399900, description: 'S25 Ultra 12+512GB', imageUrl: 'https://hips.hearstapps.com/hmg-prod/images/samsung-galaxy-s25-ultra-67915672d72aa.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=640:*', quantity: 1, category: 'smartphone', brand: 'samsung'},
