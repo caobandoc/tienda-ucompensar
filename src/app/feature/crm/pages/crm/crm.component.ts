@@ -1,15 +1,8 @@
-import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
-
-@Component({
-  selector: 'app-crm',
-  imports: [
-    RouterOutlet,
-    RouterLink
-  ],
-  templateUrl: './crm.component.html',
-  styleUrl: './crm.component.scss'
-})
-export class CrmComponent {
-
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string; // Aquí es donde se asocia el producto con una categoría
 }
+
