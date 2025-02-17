@@ -1,0 +1,31 @@
+<main class="container">
+  <h3 class="mb-3">Productos</h3>
+  <a class="btn btn-primary ">Nuevo</a>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      @for (colum of displayedColumns; track colum) {
+        <th scope="col">{{ colum }}</th>
+      }
+    </tr>
+    </thead>
+    <tbody>
+      @for (row of dataSource; track row.id) {
+        <tr>
+          <th scope="row">{{ row.id }}</th>
+          <td>{{ row.name }}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-primary">Editar</button>
+              <button type="button" class="btn btn-danger">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</main>
+
+
+

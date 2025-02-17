@@ -1,11 +1,27 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {CategoryService} from '../../../../core/services/category.service';
+import {Category} from '../../../../core/models/Category';
+import {TableCategoryComponent} from '../../components/tablecategory/table-category.component';
 
 @Component({
   selector: 'app-category',
-  imports: [],
   templateUrl: './category.component.html',
-  styleUrl: './category.component.scss'
+  imports: [
+    TableCategoryComponent
+  ],
+  styleUrls: ['./category.component.css']
 })
 export class CategoryComponent {
+  categories: Category[] = [];
+  displayedColumns: string[] = ['id', 'nombre', 'acciones'];
+
+  constructor(private readonly categoryService: CategoryService) {
+    this.categoryService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+    });
+  }
 
 }
+
+
+
