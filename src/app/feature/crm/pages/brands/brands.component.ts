@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TablebrandComponent } from "../../components/tablebrand/tablebrand.component";
 import { Brand } from '../../../../core/models/Brand';
+import {BrandsService} from '../../../../core/services/brands.service';
 
 @Component({
   selector: 'app-brands',
@@ -9,16 +10,14 @@ import { Brand } from '../../../../core/models/Brand';
   styleUrl: './brands.component.scss'
 })
 export class BrandsComponent {
-  brands : Brand[] = [{ id: 1, name: 'Apple' },
-    { id: 2, name: 'Samsung' },
-    { id: 3, name: 'Sony' },
-    { id: 4, name: 'LG' },
-    { id: 5, name: 'Dell' },
-    { id: 6, name: 'HP' },
-    { id: 7, name: 'Lenovo' },
-    { id: 8, name: 'Asus' },
-    { id: 9, name: 'Acer' },
-    { id: 10, name: 'Microsoft' }];
-  //datos quemados de columnas
+  brands : Brand[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'acciones'];
+
+  constructor(
+    private readonly brandsService: BrandsService
+  ) {
+    this.brandsService.getBrands().subscribe((brands) => {
+      this.brands = brands;
+    });
+  }
 }
