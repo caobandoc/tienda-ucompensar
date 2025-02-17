@@ -1,6 +1,6 @@
 <main class="container">
     <h3 class="mb-3">Marcas</h3>
-    <a class="btn btn-primary">Nuevo</a>
+    <a class="btn btn-primary" (click)="openModal(null)">Nuevo</a>
 
     <table class="table table-striped">
       <thead>
@@ -17,7 +17,7 @@
             <td>{{ row.name }}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Acciones">
-                <button type="button" class="btn btn-primary">Editar</button>
+                <button type="button" class="btn btn-primary" (click)="openModal(row)">Editar</button>
                 <button type="button" class="btn btn-danger">Eliminar</button>
               </div>
             </td>

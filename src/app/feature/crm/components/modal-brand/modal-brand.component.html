@@ -1,0 +1,20 @@
+<div class="container p-3">
+  <h1>Marca</h1>
+  <form [formGroup]="brandForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label >Nombre</mat-label>
+      <input type="text" matInput placeholder="Ejemplo" formControlName="name">
+      @if (brandForm.get('name')?.touched && brandForm.get('name')?.hasError('required')) {
+        <mat-error>Nombre es <strong>requerido</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <button type="submit" class="btn btn-primary" [disabled]="brandForm.invalid">
+      @if(brand?.id){
+        Actualizar
+      } @else {
+        Crear
+      }
+    </button>
+  </form>
+</div>

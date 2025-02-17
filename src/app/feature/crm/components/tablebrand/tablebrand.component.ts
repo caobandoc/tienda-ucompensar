@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import { Brand } from '../../../../core/models/Brand';
 import { CommonModule } from '@angular/common';
+import {MatDialog} from '@angular/material/dialog';
+import {ModalBrandComponent} from '../modal-brand/modal-brand.component';
 
 @Component({
   selector: 'app-tablebrand',
@@ -11,6 +13,12 @@ import { CommonModule } from '@angular/common';
 })
 export class TablebrandComponent {
   @Input() displayedColumns: string[] = ['id', 'nombre', 'acciones'];
-  @Input() dataSource: Brand[] = [  
-  ];
+  @Input() dataSource: Brand[] = [];
+  readonly dialog = inject(MatDialog);
+
+  openModal(row: Brand | null): void {
+    this.dialog.open(ModalBrandComponent, {
+      data: row
+    });
+  }
 }
