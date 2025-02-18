@@ -3,11 +3,11 @@ import {Product} from '../../../../core/models/Product';
 import {ProductsService} from '../../../../core/services/products.service';
 import {TopbarComponent} from '../../components/topbar/topbar.component';
 import { ActivatedRoute } from '@angular/router';
-import { NgOptimizedImage } from '@angular/common';
+import {CurrencyPipe, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-detailproduct',
-  imports: [TopbarComponent, NgOptimizedImage],
+    imports: [TopbarComponent, NgOptimizedImage, CurrencyPipe],
   templateUrl: './detailproduct.component.html',
   styleUrl: './detailproduct.component.scss'
 })
@@ -15,7 +15,7 @@ export class DetailproductComponent {
 product: Product|undefined;
   itemid: string|null;
   constructor(
-    private readonly productsService: ProductsService, 
+    private readonly productsService: ProductsService,
     private readonly route: ActivatedRoute
   ) {
     this.itemid=this.route.snapshot.paramMap.get('id');
