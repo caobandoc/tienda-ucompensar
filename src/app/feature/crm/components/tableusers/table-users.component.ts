@@ -1,5 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {User} from '../../../../core/models/User';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalUsersComponent } from '../modal-users/modal-users.component';
 
 @Component({
   selector: 'app-tableusers',
@@ -11,4 +13,9 @@ import {User} from '../../../../core/models/User';
 export class TableUsersComponent {
   @Input() displayedColumns: string[] = [];
   @Input() dataSource: User[] = [];
+  dialog=inject(MatDialog);
+  
+  openModal(data:User|null){
+    this.dialog.open(ModalUsersComponent,{data:data})
+  }
 }
