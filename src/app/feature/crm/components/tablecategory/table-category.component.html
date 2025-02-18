@@ -1,0 +1,35 @@
+<main class="container">
+  <h3 class="mb-3">Categoria</h3>
+  <a class="btn btn-primary" (click)="openModal(null)">Nuevo</a>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      @for (colum of displayedColumns; track colum) {
+        <th scope="col">{{ colum }}</th>
+      }
+    </tr>
+    </thead>
+    <tbody>
+      @for (row of dataSource; track row.id) {
+        <tr>
+          <th scope="row">{{ row.id }}</th>
+          <td>{{ row.name }}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-primary" (click)="openModal(row)">
+                <mat-icon fontIcon="edit"></mat-icon>
+              </button>
+              <button type="button" class="btn btn-danger">
+                <mat-icon fontIcon="delete"></mat-icon>
+              </button>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</main>
+
+
+
