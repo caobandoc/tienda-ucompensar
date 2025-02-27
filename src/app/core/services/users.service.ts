@@ -4,9 +4,9 @@ import {Observable} from 'rxjs';
 
 const ELEMENT_DATA: User[] = [
   {id: 1, name: 'Lesly', lastName: 'Ariza', username:'Lariza'},
-  {id: 1, name: 'Carlos', lastName: 'Obando', username:'Cobando'},
-  {id: 1, name: 'Camilo', lastName: 'calderon', username:'Ccalderon'},
-  {id: 1, name: 'Armando', lastName: 'Ospina', username:'Aospina'},
+  {id: 2, name: 'Carlos', lastName: 'Obando', username:'Cobando'},
+  {id: 3, name: 'Camilo', lastName: 'calderon', username:'Ccalderon'},
+  {id: 4, name: 'Armando', lastName: 'Ospina', username:'Aospina'},
 ];
 
 @Injectable({
