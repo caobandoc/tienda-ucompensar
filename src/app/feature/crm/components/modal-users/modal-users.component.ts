@@ -10,10 +10,11 @@ import {
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import {UsersService} from '../../../../core/services/users.service';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-modal-users',
-  imports: [ReactiveFormsModule, MatFormField, MatInput, MatError, MatLabel],
+  imports: [ReactiveFormsModule, MatFormField, MatInput, MatError, MatLabel, NgIf],
   templateUrl: './modal-users.component.html',
   styleUrl: './modal-users.component.scss',
 })
@@ -31,7 +32,7 @@ export class ModalUsersComponent {
       name: [this.user?.name, Validators.required],
       lastname: [this.user?.lastname, Validators.required],
       username: [this.user?.username, Validators.required],
-      password: [this.user?.password, [Validators.required, Validators.minLength(4)]],
+      password: ['', this.user ? [] : [Validators.required, Validators.minLength(4)]],
     });
   }
 
