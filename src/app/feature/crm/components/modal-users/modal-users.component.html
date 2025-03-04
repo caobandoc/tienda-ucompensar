@@ -11,8 +11,8 @@
 
         <mat-form-field class="full-width">
             <mat-label>Apellido</mat-label>
-            <input type="text" matInput placeholder="Ejemplo" formControlName="lastName">
-            @if (userForm.get('lastName')?.touched && userForm.get('lastName')?.hasError('required')) {
+            <input type="text" matInput placeholder="Ejemplo" formControlName="lastname">
+            @if (userForm.get('lastname')?.touched && userForm.get('lastname')?.hasError('required')) {
             <mat-error>Apellido es <strong>requerido</strong></mat-error>
             }
         </mat-form-field>
@@ -24,6 +24,14 @@
             <mat-error>Nombre usuario es <strong>requerido</strong></mat-error>
             }
         </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput placeholder="Ejemplo" formControlName="password">
+        @if (userForm.get('password')?.touched && userForm.get('password')?.hasError('required')) {
+          <mat-error>La contraseña es <strong>requerida</strong></mat-error>
+        }
+      </mat-form-field>
 
         <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">
             @if(user?.id){

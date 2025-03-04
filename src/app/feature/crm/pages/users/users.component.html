@@ -1,2 +1,4 @@
 <app-tableusers [dataSource]="users"
-                   [displayedColumns]="displayedColumns"></app-tableusers>
+                   [displayedColumns]="displayedColumns"
+                (refreshUsers)="onRefreshUsers()"
+></app-tableusers>

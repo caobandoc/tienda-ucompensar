@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
 import {User} from '../models/User';
 import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environment/environment';
 
-const ELEMENT_DATA: User[] = [
-  {id: 1, name: 'Lesly', lastName: 'Ariza', username:'Lariza'},
-  {id: 2, name: 'Carlos', lastName: 'Obando', username:'Cobando'},
-  {id: 3, name: 'Camilo', lastName: 'calderon', username:'Ccalderon'},
-  {id: 4, name: 'Armando', lastName: 'Ospina', username:'Aospina'},
-];
+const { apiUrl } = environment;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  constructor() { }
+  private readonly url: string = `${apiUrl}/usuarios`;
+
+  constructor(private http: HttpClient) { }
 
   public getUsers(): Observable<User[]> {
-    return new Observable((observer) => {
-      observer.next(ELEMENT_DATA);
-      observer.complete();
-    });
+    return this.http.get<User[]>(`${this.url}`);
+  }
+
+  public createUser(user: User): Observable<any> {
+    return this.http.post(this.url, user);
+  }
+
+  public updateUser(user: User, id: number): Observable<any> {
+    return this.http.put(`${this.url}/${id}`, user);
   }
 }

@@ -17,8 +17,16 @@ export class UsersComponent {
   constructor(
     private readonly usersService: UsersService
   ) {
+    this.loadUsers();
+  }
+
+  loadUsers(){
     this.usersService.getUsers().subscribe((users) => {
       this.users = users;
     });
+  }
+
+  onRefreshUsers(){
+    this.loadUsers();
   }
 }
