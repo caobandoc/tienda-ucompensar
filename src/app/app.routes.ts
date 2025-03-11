@@ -9,6 +9,7 @@ import {UsersComponent} from './feature/crm/pages/users/users.component';
 import {CategoryComponent} from './feature/crm/pages/category/category.component';
 import {CrmComponent} from './feature/crm/pages/crm/crm.component';
 import { DetailproductComponent } from './feature/home/pages/detailproduct/detailproduct.component';
+import {authGuard} from './core/guards/auth-guard.guard';
 
 export const routes: Routes = [{
   path: '',
@@ -28,6 +29,7 @@ export const routes: Routes = [{
 }, {
   path: 'crm',
   component: CrmComponent,
+  canActivate: [authGuard],
   children: [
     {
       path: 'brands',
