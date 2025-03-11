@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import {LoginService} from '../../../../core/services/login.service';
 
 @Component({
   selector: 'app-crm',
@@ -12,4 +13,13 @@ import {RouterLink, RouterOutlet} from '@angular/router';
 })
 export class CrmComponent {
 
+  private readonly router = inject(Router);
+
+  constructor(private readonly loginService: LoginService) {
+  }
+
+  closeSession(){
+    this.loginService.deleteToken();
+    this.router.navigate(['/']);
+  }
 }

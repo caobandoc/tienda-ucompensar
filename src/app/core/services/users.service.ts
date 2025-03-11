@@ -13,7 +13,7 @@ export class UsersService {
 
   private readonly url: string = `${apiUrl}/usuarios`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.url}`);
@@ -25,5 +25,9 @@ export class UsersService {
 
   public updateUser(user: User, id: number): Observable<any> {
     return this.http.put(`${this.url}/${id}`, user);
+  }
+
+  public deleteUser(id: number): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }
