@@ -1,2 +1,4 @@
 <app-tableproducts [dataSource]="products"
-                   [displayedColumns]="displayedColumns"></app-tableproducts>
+                   [displayedColumns]="displayedColumns"
+                   (refresh)="onRefresh()"
+></app-tableproducts>

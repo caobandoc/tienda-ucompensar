@@ -19,6 +19,14 @@ export class ProductsComponent {
   constructor(
     private readonly productsService: ProductsService
   ) {
+    this.loadProducts();
+  }
+
+  onRefresh(){
+    this.loadProducts();
+  }
+
+  private loadProducts() {
     this.productsService.getProducts().subscribe((products) => {
       this.products = products;
     });

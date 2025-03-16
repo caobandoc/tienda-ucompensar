@@ -13,12 +13,12 @@ import {CurrencyPipe, NgOptimizedImage} from '@angular/common';
 })
 export class DetailproductComponent {
 product: Product|undefined;
-  itemid: string|null;
+  itemid: number|null;
   constructor(
     private readonly productsService: ProductsService,
     private readonly route: ActivatedRoute
   ) {
-    this.itemid=this.route.snapshot.paramMap.get('id');
+    this.itemid=Number(this.route.snapshot.paramMap.get('id'));
     if(this.itemid){
       this.productsService.getProduct(this.itemid).subscribe((product:Product)=>{
         this.product=product;

@@ -50,6 +50,24 @@
       }
     </mat-form-field>
 
+    <mat-form-field class="full-width" floatLabel="always">
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="category" disableRipple>
+        @for (category of categories; track category.id) {
+          <mat-option value="{{category.id}}">{{category.name}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" floatLabel="always">
+      <mat-label>Marca</mat-label>
+      <mat-select formControlName="brand" disableRipple>
+        @for (brand of brands; track brand.id) {
+          <mat-option value="{{brand.id}}">{{brand.name}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
     <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
       @if(product?.id){
         Actualizar

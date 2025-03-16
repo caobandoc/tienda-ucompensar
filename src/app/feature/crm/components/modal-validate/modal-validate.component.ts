@@ -10,6 +10,7 @@ import {MatButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {BrandsService} from '../../../../core/services/brands.service';
 import {CategoryService} from '../../../../core/services/category.service';
+import {ProductsService} from '../../../../core/services/products.service';
 
 @Component({
   selector: 'app-modal-validate',
@@ -24,13 +25,14 @@ import {CategoryService} from '../../../../core/services/category.service';
   styleUrl: './modal-validate.component.scss'
 })
 export class ModalValidateComponent {
-  readonly data: {id: number, type: 'user'|'brand'|'category'} = inject(MAT_DIALOG_DATA);
+  readonly data: {id: number, type: string} = inject(MAT_DIALOG_DATA);
   readonly dialogRef = inject(MatDialogRef<ModalValidateComponent>);
 
   constructor(
     private readonly usersService: UsersService,
     private readonly brandService: BrandsService,
-    private readonly categoryService: CategoryService
+    private readonly categoryService: CategoryService,
+    private readonly productService: ProductsService
   ) {}
 
   deleteItem() {
@@ -42,6 +44,9 @@ export class ModalValidateComponent {
     }
     if (this.data.type === 'category'){
       this.deleteCategory();
+    }
+    if (this.data.type === 'product'){
+      this.deleteProduct();
     }
   }
 
@@ -73,6 +78,18 @@ export class ModalValidateComponent {
     this.categoryService.deleteCategory(this.data.id).subscribe({
       next: () => {
         console.log('Category deleted');
+        this.dialogRef.close();
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
+  }
+
+  deleteProduct() {
+    this.productService.deleteProduct(this.data.id).subscribe({
+      next: () => {
+        console.log('Product deleted');
         this.dialogRef.close();
       },
       error: (error) => {

@@ -1,3 +1,6 @@
+import {Category} from './Category';
+import {Brand} from './Brand';
+
 export interface Product{
   id: number;
   name: string;
@@ -5,6 +8,6 @@ export interface Product{
   description: string;
   imageUrl: string;
   quantity: number;
-  category: string;
-  brand: string;
+  category: Category | undefined;
+  brand: Brand | undefined;
 }
