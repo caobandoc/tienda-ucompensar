@@ -1,29 +1,33 @@
 import { Injectable } from '@angular/core';
 import {Brand} from '../models/Brand';
 import {Observable} from 'rxjs';
+import {environment} from '../../../environment/environment';
+import {HttpClient} from '@angular/common/http';
 
-const ELEMENT_DATA: Brand[] = [{ id: 1, name: 'Apple' },
-  { id: 2, name: 'Samsung' },
-  { id: 3, name: 'Sony' },
-  { id: 4, name: 'LG' },
-  { id: 5, name: 'Dell' },
-  { id: 6, name: 'HP' },
-  { id: 7, name: 'Lenovo' },
-  { id: 8, name: 'Asus' },
-  { id: 9, name: 'Acer' },
-  { id: 10, name: 'Microsoft' }];
+const { apiUrl } = environment;
 
 @Injectable({
   providedIn: 'root'
 })
 export class BrandsService {
 
-  constructor() { }
+  private readonly url: string = `${apiUrl}/marca`;
+
+  constructor(private readonly http: HttpClient) { }
 
   public getBrands(): Observable<Brand[]> {
-    return new Observable((observer) => {
-      observer.next(ELEMENT_DATA);
-      observer.complete();
-    });
+    return this.http.get<Brand[]>(`${this.url}`);
+  }
+
+  public createBrand(brand: Brand): Observable<any> {
+    return this.http.post(this.url, brand);
+  }
+
+  public updateBrand(brand: Brand, id: number): Observable<any> {
+    return this.http.put(`${this.url}/${id}`, brand);
+  }
+
+  public deleteBrand(id: number): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }

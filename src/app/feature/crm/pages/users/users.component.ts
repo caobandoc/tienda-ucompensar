@@ -26,7 +26,7 @@ export class UsersComponent {
     });
   }
 
-  onRefreshUsers(){
+  onRefresh(){
     this.loadUsers();
   }
 }

@@ -14,22 +14,25 @@ import {ModalValidateComponent} from '../modal-validate/modal-validate.component
 export class TableUsersComponent {
   @Input() displayedColumns: string[] = [];
   @Input() dataSource: User[] = [];
-  @Output() refreshUsers = new EventEmitter<void>();
+  @Output() refresh = new EventEmitter<void>();
   dialog = inject(MatDialog);
 
   openModal(data: User | null) {
     const dialogRef = this.dialog.open(ModalUsersComponent, {data: data})
 
     dialogRef.afterClosed().subscribe(() => {
-      this.refreshUsers.emit();
+      this.refresh.emit();
     });
   }
 
   openModalDelete(data: User | null) {
-    const dialogRef = this.dialog.open(ModalValidateComponent, {data: data})
+    const dialogRef = this.dialog.open(ModalValidateComponent, {
+        data: {id: data?.id, type: 'user'}
+      })
 
     dialogRef.afterClosed().subscribe(() => {
-      this.refreshUsers.emit();
+      this.refresh.emit();
     });
   }
+
 }

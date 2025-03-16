@@ -16,8 +16,16 @@ export class BrandsComponent {
   constructor(
     private readonly brandsService: BrandsService
   ) {
+    this.loadBrands();
+  }
+
+  loadBrands(){
     this.brandsService.getBrands().subscribe((brands) => {
       this.brands = brands;
     });
+  }
+
+  onRefresh(){
+    this.loadBrands();
   }
 }
