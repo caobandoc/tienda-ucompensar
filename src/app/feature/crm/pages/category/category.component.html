@@ -1,2 +1,4 @@
 <app-tablecategory [dataSource]="categories"
-                   [displayedColumns]="displayedColumns"></app-tablecategory>
+                   [displayedColumns]="displayedColumns"
+                (refresh)="onRefresh()"
+></app-tablecategory>

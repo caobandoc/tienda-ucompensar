@@ -16,9 +16,17 @@ export class CategoryComponent {
   displayedColumns: string[] = ['id', 'nombre', 'acciones'];
 
   constructor(private readonly categoryService: CategoryService) {
+    this.loadCategories();
+  }
+
+  loadCategories(){
     this.categoryService.getCategories().subscribe((categories) => {
       this.categories = categories;
     });
+  }
+
+  onRefresh(){
+    this.loadCategories();
   }
 
 }

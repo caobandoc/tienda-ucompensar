@@ -1,32 +1,33 @@
 import { Injectable } from '@angular/core';
 import {Category} from '../models/Category';
 import {Observable} from 'rxjs';
+import {environment} from '../../../environment/environment';
+import {HttpClient} from '@angular/common/http';
 
-const ELEMENT_DATA: Category[] = [
-  { id: 0, name:  'a' },
-  { id: 1, name:  'b' },
-  { id: 2, name:  'c' },
-  { id: 3, name:  'd' },
-  { id: 4, name:  'e' },
-  { id: 5, name:  'f' },
-  { id: 6, name:  'g' },
-  { id: 7, name:  'h' },
-  { id: 8, name:  'i' },
-  { id: 9, name:  'j' },
-  { id: 10, name:  'k' },
-]
+const { apiUrl } = environment;
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  constructor() { }
+  private readonly url: string = `${apiUrl}/categoria`;
+
+  constructor(private readonly http: HttpClient) { }
 
   public getCategories(): Observable<Category[]> {
-    return new Observable((observer) => {
-      observer.next(ELEMENT_DATA);
-      observer.complete();
-    });
+    return this.http.get<Category[]>(`${this.url}`);
+  }
+
+  public createCategory(category: Category): Observable<any> {
+    return this.http.post(this.url, category);
+  }
+
+  public updateCategory(category: Category, id: number): Observable<any> {
+    return this.http.put(`${this.url}/${id}`, category);
+  }
+
+  public deleteCategory(id: number): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }
