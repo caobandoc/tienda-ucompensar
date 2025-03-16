@@ -1,5 +1,4 @@
 import {Component, inject} from '@angular/core';
-import {User} from '../../../../core/models/User';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
